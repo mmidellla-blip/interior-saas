@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { isDevPassword } from "@/lib/auth";
+import { adminConfigured, isDevPassword } from "@/lib/auth";
 import LoginForm from "./LoginForm";
 
 export const metadata: Metadata = { title: "관리자 로그인", robots: { index: false } };
@@ -16,7 +16,13 @@ export default function Page() {
           <p className="text-sm text-muted">문의·현장·단가표를 관리합니다</p>
         </div>
         <LoginForm />
-        {isDevPassword() && (
+        {!adminConfigured() && (
+          <p className="mt-4 rounded-xl bg-danger/10 p-3 text-center text-xs text-danger">
+            관리자 로그인이 잠겨 있어요. 배포 환경변수에 <b>ADMIN_PASSWORD</b>와 <b>SESSION_SECRET</b>을 넣고 다시
+            배포해 주세요.
+          </p>
+        )}
+        {isDevPassword() && process.env.NODE_ENV !== "production" && (
           <p className="mt-4 rounded-xl bg-wood-soft p-3 text-center text-xs text-wood">
             개발용 비밀번호: <b>demo1234</b> · 운영 시 ADMIN_PASSWORD 환경변수를 설정하세요
           </p>

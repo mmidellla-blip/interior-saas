@@ -21,6 +21,14 @@ export function isDevPassword(): boolean {
   return !process.env.ADMIN_PASSWORD;
 }
 
+/**
+ * 운영 서버는 비밀번호·서명 키 환경변수가 둘 다 있어야 관리자 로그인을 연다.
+ * 없으면 공개 주소에서 개발용 비밀번호로 누구나 들어올 수 있기 때문이다.
+ */
+export function adminConfigured(): boolean {
+  return process.env.NODE_ENV !== "production" || (!!process.env.ADMIN_PASSWORD && !!process.env.SESSION_SECRET);
+}
+
 function secret(): string {
   const value = process.env.SESSION_SECRET;
   if (!value && process.env.NODE_ENV === "production") {
@@ -40,7 +48,7 @@ function safeEqual(a: string, b: string): boolean {
 }
 
 export function checkPassword(input: string): boolean {
-  return safeEqual(input, adminPassword());
+  return adminConfigured() && safeEqual(input, adminPassword());
 }
 
 export async function startSession(companyId: string): Promise<void> {
@@ -61,7 +69,7 @@ export async function endSession(): Promise<void> {
 
 export async function getSession(): Promise<{ companyId: string } | null> {
   const raw = (await cookies()).get(SESSION_COOKIE)?.value;
-  if (!raw) return null;
+  if (!raw || !adminConfigured()) return null;
   const [companyId, expires, signature] = raw.split(".");
   if (!companyId || !expires || !signature) return null;
   if (!safeEqual(signature, sign(`${companyId}.${expires}`))) return null;

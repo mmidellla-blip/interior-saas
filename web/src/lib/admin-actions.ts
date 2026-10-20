@@ -4,7 +4,7 @@ import { mkdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { refresh } from "next/cache";
 import { redirect } from "next/navigation";
-import { checkPassword, endSession, requireAdmin, startSession } from "./auth";
+import { adminConfigured, checkPassword, endSession, requireAdmin, startSession } from "./auth";
 import { mutateDb, newId, newShareToken, readDb, UPLOAD_DIR } from "./db";
 import {
   GRADES,
@@ -35,6 +35,9 @@ function shareExpiry(): string {
 // ── 로그인 ────────────────────────────────────────────────
 
 export async function login(_prev: { error?: string }, form: FormData): Promise<{ error?: string }> {
+  if (!adminConfigured()) {
+    return { error: "관리자 설정 전이에요. Vercel 환경변수 ADMIN_PASSWORD와 SESSION_SECRET을 넣고 다시 배포해 주세요." };
+  }
   if (!checkPassword(String(form.get("password") ?? ""))) {
     return { error: "비밀번호가 맞지 않습니다." };
   }

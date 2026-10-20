@@ -1,6 +1,7 @@
 import "server-only";
 import { randomBytes } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { connection } from "next/server";
 import { createSeed, seedShowrooms } from "./seed";
@@ -10,7 +11,12 @@ import type { Database } from "./types";
  * MVP용 파일 저장소. 모든 레코드에 companyId가 있고, 조회 함수는 항상 companyId로 거른다.
  * 나중에 Supabase(Postgres + RLS)로 옮길 때 이 파일만 바꾸면 된다.
  */
-export const DATA_DIR = path.join(process.cwd(), "data");
+/**
+ * Vercel 서버는 프로젝트 폴더에 쓸 수 없어서 임시 폴더를 쓴다.
+ * 임시 폴더는 서버가 다시 뜰 때마다 비고 서버끼리 공유되지 않으므로 시연용이다. 실제 운영은 DB로 옮겨야 한다.
+ */
+export const DATA_DIR =
+  process.env.DATA_DIR || (process.env.VERCEL ? path.join(os.tmpdir(), "interior-data") : path.join(process.cwd(), "data"));
 const DB_FILE = path.join(DATA_DIR, "db.json");
 export const UPLOAD_DIR = path.join(DATA_DIR, "uploads");
 
