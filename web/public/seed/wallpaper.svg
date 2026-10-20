@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<rect width="1200" height="900" fill="#f4f1ec"/>
+<polygon points="0,0 1200,0 870,210 330,210" fill="#fafaf8"/>
+<polygon points="0,0 330,210 330,600 0,900" fill="#e9e5de"/>
+<polygon points="1200,0 870,210 870,600 1200,900" fill="#e9e5de" opacity="0.92"/>
+<rect x="330" y="210" width="540" height="390" fill="#f4f1ec"/>
+<polygon points="0,900 330,600 870,600 1200,900" fill="#b3ada2"/>
+
+<rect x="470" y="270" width="260" height="190" fill="#cfe3ec" stroke="#fff" stroke-width="10"/><line x1="600" y1="270" x2="600" y2="460" stroke="#fff" stroke-width="8"/>
+<rect x="330" y="210" width="200" height="390" fill="#e9e6e0"/>
+<polygon points="760,900 800,420 830,420 800,900" fill="#c99a5e"/><polygon points="900,900 860,420 890,420 940,900" fill="#c99a5e"/>
+<line x1="790" y1="520" x2="900" y2="520" stroke="#b07f45" stroke-width="10"/><line x1="790" y1="600" x2="900" y2="600" stroke="#b07f45" stroke-width="10"/><line x1="790" y1="680" x2="900" y2="680" stroke="#b07f45" stroke-width="10"/><line x1="790" y1="760" x2="900" y2="760" stroke="#b07f45" stroke-width="10"/>
+<rect x="400" y="740" width="200" height="40" rx="20" fill="#f7f4ee" stroke="#ddd"/>
+</svg>

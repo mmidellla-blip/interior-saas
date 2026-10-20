@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+<rect width="1200" height="900" fill="#c9c3b8"/>
+<polygon points="0,0 1200,0 870,210 330,210" fill="#d6d0c5"/>
+<polygon points="0,0 330,210 330,600 0,900" fill="#bab4a9"/>
+<polygon points="1200,0 870,210 870,600 1200,900" fill="#bab4a9" opacity="0.92"/>
+<rect x="330" y="210" width="540" height="390" fill="#c9c3b8"/>
+<polygon points="0,900 330,600 870,600 1200,900" fill="#a8a296"/>
+
+<rect x="345" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="407" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="469" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="531" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="593" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="655" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="717" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="779" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/><rect x="841" y="210" width="16" height="390" fill="#d9b27a" stroke="#b48d55"/>
+<rect x="330" y="210" width="540" height="16" fill="#d9b27a"/><rect x="330" y="584" width="540" height="16" fill="#d9b27a"/>
+<line x1="50" y1="0" x2="360" y2="210" stroke="#d9b27a" stroke-width="12"/><line x1="250" y1="0" x2="460" y2="210" stroke="#d9b27a" stroke-width="12"/><line x1="450" y1="0" x2="560" y2="210" stroke="#d9b27a" stroke-width="12"/><line x1="650" y1="0" x2="660" y2="210" stroke="#d9b27a" stroke-width="12"/><line x1="850" y1="0" x2="760" y2="210" stroke="#d9b27a" stroke-width="12"/><line x1="1050" y1="0" x2="860" y2="210" stroke="#d9b27a" stroke-width="12"/>
+<rect x="380" y="640" width="400" height="30" fill="#e4c38f"/><rect x="420" y="680" width="380" height="30" fill="#d6b07a"/>
+</svg>

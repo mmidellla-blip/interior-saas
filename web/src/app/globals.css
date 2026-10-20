@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #faf8f4;
+  --surface: #ffffff;
+  --ink: #1f2a24;
+  --muted: #6b716b;
+  --line: #e7e2d9;
+  --brand: #2f5d4a;
+  --brand-strong: #244a3a;
+  --brand-soft: #e5eee8;
+  --wood: #b9824f;
+  --wood-soft: #f5ebe0;
+  --danger: #b4442f;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-wood: var(--wood);
+  --color-wood-soft: var(--wood-soft);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-noto), "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  word-break: keep-all;
+}
+
+@utility btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-strong;
+}
+@utility btn-outline {
+    @apply btn border border-line bg-surface text-ink hover:border-brand hover:text-brand;
+}
+@utility btn-ghost {
+    @apply btn text-muted hover:bg-black/5 hover:text-ink;
+}
+@utility card {
+    @apply rounded-2xl border border-line bg-surface;
+}
+@utility input {
+    @apply w-full rounded-xl border border-line bg-surface px-3 py-2.5 text-sm outline-none placeholder:text-muted/70 focus:border-brand focus:ring-2 focus:ring-brand/15;
+}
+@utility label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
+}
+@utility chip {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+}
+
+/* 미니홈피 BGM 제목 흐르기 */
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[marquee_12s_linear_infinite\] {
+    animation: none;
+  }
+}
